@@ -35,7 +35,7 @@ export class LongPressDirective implements OnInit, OnDestroy {
             this.onPressStart.emit(e);
             this.zone.run(() => {
                 this.int = setInterval(() => {
-                    this.onPressing.emit();
+                    this.onPressing.emit(e);
                 }, this.interval);
             });
         });
@@ -44,7 +44,7 @@ export class LongPressDirective implements OnInit, OnDestroy {
             this.zone.run(() => {
                 clearInterval(this.int);
             });
-            this.onPressEnd.emit();
+            this.onPressEnd.emit(e);
         });
     }
 
