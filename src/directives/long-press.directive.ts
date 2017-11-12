@@ -52,6 +52,7 @@ export class LongPressDirective implements OnInit, OnDestroy {
         this.zone.run(() => {
             clearInterval(this.int);
         });
+        this.onPressEnd.emit();
         this.pressGesture.destroy();
     }
 }
